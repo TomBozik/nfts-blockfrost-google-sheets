@@ -1,0 +1,4 @@
+pycardano
+requests
+python-dotenv
+gspreads
