@@ -1,4 +1,4 @@
 pycardano
 requests
 python-dotenv
-gspreads
+gspread

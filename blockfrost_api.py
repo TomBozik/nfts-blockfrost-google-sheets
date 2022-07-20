@@ -31,7 +31,7 @@ def get_project_assets(project_policy, assets_filename, blockfrost_api_key, bloc
 
 def get_assets_info(policy_id, blockfrost_api_key, blockfrost_base_url, assets):
     '''
-        Downloads and save the assets info from the blockfrost API (name, address, stake key).
+        Downloads the assets info from the blockfrost API (name, address, stake key).
     '''
     headers = { 'project_id': blockfrost_api_key }
     data = []
@@ -54,7 +54,7 @@ def get_assets_info(policy_id, blockfrost_api_key, blockfrost_base_url, assets):
             except:
                 addr_stake = 'NOT FOUND'
 
-            data.append([utils.decode_asset_name(asset, policy_id), address, addr_stake])
+            data.append([utils.decode_asset_name(asset, policy_id), address, str(addr_stake)])
 
     utils.save_csv(data, ['name', 'address', 'stake'], f'{policy_id}.csv')
-    return data
+    return [['name', 'address', 'stake']] + data
